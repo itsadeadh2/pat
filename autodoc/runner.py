@@ -104,12 +104,13 @@ class Runner:
         )
         try:
             formatted_code = black.format_file_contents(src_contents=contents, fast=False, mode=format_mode)
+            file.seek(0)
+            file.write(formatted_code)
+            file.truncate()
+            return file
         except black.report.NothingChanged:
             logging.info('Skipping formatting - Nothing changed')
-        file.seek(0)
-        file.write(formatted_code)
-        file.truncate()
-        return file
+            return file
 
     def process_file(self, file_path):
         """
