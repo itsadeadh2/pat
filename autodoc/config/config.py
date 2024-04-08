@@ -1,7 +1,7 @@
 import os.path
 import logging
 from dotenv import load_dotenv
-from autodoc.config import DEFAULT_CONFIG_PATH, DEFAULT_PROMPT, DEFAULT_ASSISTANT_INSTRUCTIONS
+from .default_consts import DEFAULT_CONFIG_PATH, DEFAULT_PROMPT, DEFAULT_ASSISTANT_INSTRUCTIONS
 
 
 class Config:

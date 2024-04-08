@@ -23,7 +23,7 @@ You'll be able to see it using [this link](https://platform.openai.com/playgroun
 
 Before using AutoDoc CLI, ensure that Python and `pip` are installed on your system. Then, install the tool using the following command:
 ```bash
-pip install pautodoc
+pip install git+https://github.com/itsadeadh2/pat.git
 ```
 
 ## Configuration
@@ -31,7 +31,7 @@ pip install pautodoc
 Before running the AutoDoc CLI for the first time, you must configure it with your OpenAI API key and other optional settings. To configure the tool, run:
 
 ```bash
-pautodoc configure
+pat configure
 ```
 
 This will initialize the configuration process, where you'll be prompted to enter your OpenAI API key and other relevant information.  
@@ -45,7 +45,7 @@ AutoDoc CLI offers two modes of operation: processing a single file or an entire
 
 To automatically add docstrings to all Python files in a folder, use:
 ```bash
-pautodoc run --mode folder <PROJECT_FOLDER_PATH>
+pat run --mode folder <PROJECT_FOLDER_PATH>
 ```
 
 ### File Mode
@@ -58,7 +58,7 @@ autodoc-cli run --mode file <FILE_PATH>
 
 If you wish to format the files after adding the docstrings, add the `--format` flag at the end of the command:
 ```bash
-pautodoc run --mode <mode> <path> --format
+pat run --mode <mode> <path> --format
 ```
 *This will format your files using the [black library](https://pypi.org/project/black/). If you don't use that it is very likely that the docstrings are not going to be
 properly indented.*

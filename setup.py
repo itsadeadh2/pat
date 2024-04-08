@@ -13,14 +13,14 @@ def load_requirements(file_path):
 
 
 setup(
-    name='pautodoc',
-    version='1.2.0',
+    name='pat',
+    version='1.0.0',
     packages=find_packages(),
     author='Thiago Barbosa',
     install_requires=load_requirements('requirements.txt'),
     entry_points={
         'console_scripts': [
-            'pautodoc = autodoc.autodoc:cli',
+            'pat = autodoc.autodoc:cli',
         ],
     },
     distclass=BinaryDistribution
