@@ -109,7 +109,7 @@ class Runner:
             file.truncate()
             return file
         except black.report.NothingChanged:
-            logging.info('Skipping formatting - Nothing changed')
+            logging.info("Skipping formatting - Nothing changed")
             return file
 
     def process_file(self, file_path):

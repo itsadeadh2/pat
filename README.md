@@ -2,12 +2,6 @@
 
 PAT is a command-line interface tool designed to automatically add docstrings to Python files. It leverages an AI-powered documentation service to generate meaningful docstrings based on the code's context and structure. This tool supports both single Python files and entire directories, allowing for flexible and efficient documentation workflows.
 
-## How does this work?
-PAT makes use of [OpenAi's Assistants](https://platform.openai.com/docs/assistants/overview) to analyse your code block and generate comprehensive docstrings for it.  
-Even though assistants allow you to upload the code to be used as a reference, this tool doesn't do that. Instead it just send your codeblock as a block of text to be analysed by the assistant.
-PAT will create a default assistant in your OPENAI account if you don't have one, and properly configure it after the first usage.  
-You'll be able to see it using [this link](https://platform.openai.com/playground/assistants).
-
 ## Disclaimer
 **User Responsibility**: The Python Auto-documentation Tool (PAT) utilizes OpenAI's Assistants to analyze and generate docstrings for your Python code. Users must understand that this process involves sending your code to OpenAI's servers for analysis. By using PAT, you agree to this procedure and understand the implications of sending your code to a third-party service.
 
@@ -18,6 +12,15 @@ You'll be able to see it using [this link](https://platform.openai.com/playgroun
 **Consent and Acknowledgment**: By using PAT, you acknowledge that you have read this disclaimer and understand the responsibilities and risks associated with using this tool. You also consent to the transmission of your code to OpenAI for the purpose of generating docstrings, in accordance with OpenAI's [terms of service](https://openai.com/policies/terms-of-use) and [privacy policies](https://openai.com/policies/privacy-policy).
 
 **Final Decision**: The decision to use PAT and send code to OpenAI's Assistants for analysis rests entirely with the user. Users are advised to review their code for sensitive information and consider the necessity and benefits of using this tool against potential risks to data privacy and security.
+
+## How does this work?
+PAT makes use of [OpenAi's Assistants](https://platform.openai.com/docs/assistants/overview) to analyse your code block and generate comprehensive docstrings for it.  
+Even though assistants allow you to upload the code to be used as a reference, this tool doesn't do that. Instead it just send your codeblock as a block of text to be analysed by the assistant.
+PAT will create a default assistant in your OPENAI account if you don't have one, and properly configure it after the first usage.  
+You'll be able to see it using [this link](https://platform.openai.com/playground/assistants).
+
+## How does it look like?
+This project itself used the pat library to generate its own documentation, so you can just take a look at the [autodoc folder](autodoc) and see for yourself.
 
 ## Installation
 
