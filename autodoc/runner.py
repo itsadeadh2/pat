@@ -3,6 +3,7 @@ import os
 import ast
 import black
 import io
+import logging
 
 
 class Runner:
@@ -101,7 +102,10 @@ class Runner:
         format_mode = black.Mode(
             target_versions={black.TargetVersion.PY310}, line_length=120, string_normalization=True
         )
-        formatted_code = black.format_file_contents(src_contents=contents, fast=False, mode=format_mode)
+        try:
+            formatted_code = black.format_file_contents(src_contents=contents, fast=False, mode=format_mode)
+        except black.report.NothingChanged:
+            logging.info('Skipping formatting - Nothing changed')
         file.seek(0)
         file.write(formatted_code)
         file.truncate()
