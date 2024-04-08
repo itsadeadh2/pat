@@ -1,14 +1,15 @@
 import os.path
 import logging
 from dotenv import load_dotenv
-
-DEFAULT_ASSISTANT_INSTRUCTIONS = "You are a python docstring generator. Write comprehensible python docstrings for the functions or classes that are given.Return only THE DOCSTRINGS and do not repeat the whole implementation. Do not include 'python' at the start. Do not exceed 120 characters per line."
-DEFAULT_PROMPT = "Generate a docstring for the following code: {code}"
-DEFAULT_CONFIG_PATH = os.path.expanduser("~") + '/.env.autodoc'
+from autodoc.config import DEFAULT_CONFIG_PATH, DEFAULT_PROMPT, DEFAULT_ASSISTANT_INSTRUCTIONS
 
 
 class Config:
     settings = {}
+
+    def __init__(self, config_path=None):
+        if not config_path:
+            self.__config_path = DEFAULT_CONFIG_PATH
 
     def initialize(self):
         open_ai_key = input("Please input your OpenAI API Key: ")
@@ -31,15 +32,15 @@ class Config:
         self.settings['ASSISTANT_INSTRUCTIONS'] = assistant_instructions
         self.settings['AI_PROMPT'] = prompt
         self.persist_settings()
-        logging.info(f'Settings saved at {DEFAULT_CONFIG_PATH}')
 
     def persist_settings(self):
         env_contents = ""
         for key in self.settings.keys():
             env_contents += f'{key}="{self.settings[key]}"\n'
-        with open(DEFAULT_CONFIG_PATH, 'wb') as f:
+        with open(self.__config_path, 'wb') as f:
             f.write(env_contents.encode())
-        load_dotenv(dotenv_path=DEFAULT_CONFIG_PATH)
+        logging.info(f'Settings saved at {self.__config_path}')
+        load_dotenv(dotenv_path=self.__config_path)
 
     def load(self):
         load_dotenv(dotenv_path=DEFAULT_CONFIG_PATH)

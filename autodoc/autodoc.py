@@ -2,7 +2,7 @@ import os
 
 import click
 from autodoc.services import AIAutodocService
-from autodoc.clients import Config
+from autodoc.config import Config
 from .runner import Runner
 import logging
 logging.basicConfig(level=logging.INFO, format='%(levelname)s - %(message)s')
@@ -14,8 +14,8 @@ def cli():
 
 @click.command()
 @click.option('--mode', '-m', type=click.Choice(['folder', 'file']), default='folder', help='Mode of operation: folder or file.')
-@click.option('--format', is_flag=True, show_default=True, default=False, help="Format the file after adding the docstrings.")
 @click.argument('path', type=click.Path(exists=True))
+@click.option('--format', is_flag=True, show_default=True, default=False, help="Format the file after adding the docstrings.")
 def run(mode, path, format):
     """
     Automatically adds docstrings to Python files in the given PROJECT_FOLDER.

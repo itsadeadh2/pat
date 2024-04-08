@@ -13,7 +13,7 @@ def load_requirements(file_path):
 
 
 setup(
-    name='pyautodoc',
+    name='pautodoc',
     version='1.2.0',
     packages=find_packages(),
     author='Thiago Barbosa',
