@@ -55,7 +55,7 @@ pat run --mode folder <PROJECT_FOLDER_PATH>
 
 To add docstrings to a single Python file, use:
 ```bash
-autodoc-cli run --mode file <FILE_PATH>
+pat run --mode file <FILE_PATH>
 ```
 ### Formatting
 
